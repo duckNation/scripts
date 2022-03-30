@@ -48,32 +48,32 @@ sudo systemctl daemon-reload
 sudo systemctl start seaweedmaster
 sudo systemctl enable seaweedmaster
 
-#
-#cd ~
-#mkdir /mnt/vol1
-#
-#echo '[Unit]
-#Description=SeaweedFS Volume
-#After=network.target
-#
-#[Service]
-#Type=simple
-#User=root
-#Group=root
-#
-#ExecStart=/usr/local/bin/weed volume -dir="/mnt/vol1" -max=10 -mserver="127.0.0.1:9333" -port=8081
-#WorkingDirectory=/usr/local/bin/
-#SyslogIdentifier=seaweedfs-volume
-#
-#[Install]
-#WantedBy=multi-user.target' | sudo tee -a /etc/systemd/system/seaweedvolume1.service
-#
-#sudo systemctl daemon-reload
-#sudo systemctl start seaweedvolume1.service
-#sudo systemctl enable seaweedvolume1.service
-#
-#
-#
-#
-#sudo systemctl status seaweedmaster
-#sudo systemctl status seaweedvolume1
+
+cd ~
+mkdir /mnt/vol1
+
+echo '[Unit]
+Description=SeaweedFS Volume
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+ExecStart=/usr/local/bin/weed volume -dir="/mnt/vol1" -max=10 -mserver="127.0.0.1:9333" -port=8081
+WorkingDirectory=/usr/local/bin/
+SyslogIdentifier=seaweedfs-volume
+
+[Install]
+WantedBy=multi-user.target' | sudo tee -a /etc/systemd/system/seaweedvolume1.service
+
+sudo systemctl daemon-reload
+sudo systemctl start seaweedvolume1.service
+sudo systemctl enable seaweedvolume1.service
+
+
+
+
+sudo systemctl status seaweedmaster
+sudo systemctl status seaweedvolume1
