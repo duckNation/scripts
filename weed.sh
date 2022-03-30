@@ -27,27 +27,27 @@ git clone https://github.com/chrislusf/seaweedfs.git
 cd seaweedfs/weed && make install
 
 cp $GOPATH/bin/weed /usr/local/bin
-#
-#echo '[Unit]
-#Description=SeaweedFS Master
-#After=network.target
-#
-#[Service]
-#Type=simple
-#User=root
-#Group=root
-#
-#ExecStart=/usr/local/bin/weed master
-#WorkingDirectory=/usr/local/bin/
-#SyslogIdentifier=seaweedfs-master
-#
-#[Install]
-#WantedBy=multi-user.target' | sudo tee -a /etc/systemd/system/seaweedmaster.service
-#
-#sudo systemctl daemon-reload
-#sudo systemctl start seaweedmaster
-#sudo systemctl enable seaweedmaster
-#
+
+echo '[Unit]
+Description=SeaweedFS Master
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+
+ExecStart=/usr/local/bin/weed master
+WorkingDirectory=/usr/local/bin/
+SyslogIdentifier=seaweedfs-master
+
+[Install]
+WantedBy=multi-user.target' | sudo tee -a /etc/systemd/system/seaweedmaster.service
+
+sudo systemctl daemon-reload
+sudo systemctl start seaweedmaster
+sudo systemctl enable seaweedmaster
+
 #
 #cd ~
 #mkdir /mnt/vol1
